@@ -1,0 +1,16 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: grocery_dev
+test:
+  <<: *default
+  database: grocery_test
+production:
+  <<: *default
+  database: grocery_production
+  username: grocery
+  password: <%= ENV['GROCERY_DATABASE_PASSWORD'] %>
