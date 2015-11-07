@@ -13,5 +13,23 @@ Rails.application.routes.draw do
     passwords: "users/passwords"
   }
 
+  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
+    api_version(module: 'V1',
+                path: { value: 'v1' },
+                header: { name: 'Accept', value: 'application/vnd.groceries; version=1' },
+                defaults: { format: :json }
+               ) do
+
+      resources :users, except: [:destroy]
+
+      resources :sessions, only: [:create, :destroy]
+      resources :registrations, only: [:create, :update]
+      resources :passwords
+    end
+
+    root 'api#unauthorized'
+  end
+
+
   root 'pages#index'
 end

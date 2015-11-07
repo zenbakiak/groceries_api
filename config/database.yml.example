@@ -5,12 +5,12 @@ default: &default
 
 development:
   <<: *default
-  database: grocery_dev
+  database: sass_app_dev
 test:
   <<: *default
-  database: grocery_test
+  database: sass_app_test
 production:
   <<: *default
-  database: grocery_production
-  username: grocery
+  database: sass_app_production
+  username: sass_app
   password: <%= ENV['GROCERY_DATABASE_PASSWORD'] %>
