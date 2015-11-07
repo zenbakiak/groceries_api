@@ -14,6 +14,7 @@ gem "puma"
 gem 'devise'
 gem "rolify"
 
+gem 'versionist'
 gem 'active_model_serializers'
 
 gem 'mini_magick'
